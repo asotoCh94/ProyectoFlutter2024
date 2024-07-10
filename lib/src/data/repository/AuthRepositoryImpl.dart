@@ -1,3 +1,4 @@
+import 'package:proyecto_flutter/src/data/dataSource/local/SharedPref.dart';
 import 'package:proyecto_flutter/src/data/dataSource/remote/service/AuthService.dart';
 import 'package:proyecto_flutter/src/domain/models/AuthResponse.dart';
 import 'package:proyecto_flutter/src/domain/models/User.dart';
@@ -7,17 +8,39 @@ import 'package:proyecto_flutter/src/domain/utils/Resource.dart';
 //@Injectable(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
   AuthService authService;
-  AuthRepositoryImpl(this.authService);
+  SharedPref sharedPref;
+
+  AuthRepositoryImpl(this.authService, this.sharedPref);
 
   @override
   Future<Resource<AuthResponse>> login(String email, String password) {
-    // TODO: implement login
     return authService.login(email, password);
   }
 
   @override
   Future<Resource<AuthResponse>> register(User user) {
-    // TODO: implement register
     return authService.register(user);
+  }
+
+  //leer la session
+  @override
+  Future<AuthResponse?> getUserSession() async {
+    final data = await sharedPref.read('user');
+    if (data != null) {
+      AuthResponse authResponse = AuthResponse.fromJson(data);
+      return authResponse;
+    }
+    return null;
+  }
+
+  //guardando la sesion
+  @override
+  Future<void> saveUserSession(AuthResponse authResponse) async {
+    sharedPref.save('user', authResponse.toJson());
+  }
+
+  @override
+  Future<bool> logout() async {
+    return await sharedPref.remove('user');
   }
 }

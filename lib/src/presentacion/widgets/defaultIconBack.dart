@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class DefaultIconBack extends StatelessWidget {
   double left;
   double top;
-
-  DefaultIconBack({required this.left, required this.top});
+  Color color;
+  DefaultIconBack({required this.left, required this.top, this.color = Colors.white});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class DefaultIconBack extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios,
             size: 30,
-            color: Colors.white,
+            color: color,
           )),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:proyecto_flutter/src/presentacion/pages/auth/login/bloc/LoginEvent.dart';
 import 'package:proyecto_flutter/src/presentacion/pages/auth/login/bloc/LoginBloc.dart';
@@ -31,48 +32,34 @@ class LoginContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center, //vertical
               crossAxisAlignment: CrossAxisAlignment.center, //horizontal
               children: [
-                Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 125,
-                ),
-                Text(
-                  'Login',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
+                _iconPerson(),
+                _textLogin(),
                 _textFieldEmail(),
                 _textFieldPassword(),
                 _buttonLogin(context),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 65,
-                      height: 1,
-                      color: Colors.white,
-                      margin: EdgeInsets.only(right: 5),
-                    ),
-                    Text(
-                      'No tienes cuenta?',
-                      style: TextStyle(color: Colors.white, fontSize: 17),
-                    ),
-                    Container(
-                      width: 65,
-                      height: 1,
-                      color: Colors.white,
-                      margin: EdgeInsets.only(left: 5),
-                    ),
-                  ],
-                ),
+                _textNoCuenta(),
                 _buttonRegister(context),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  Widget _iconPerson() {
+    return Icon(
+      Icons.person,
+      color: Colors.white,
+      size: 125,
+    );
+  }
+
+  Widget _textLogin() {
+    return Text(
+      'Login',
+      style: TextStyle(
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
     );
   }
 
@@ -160,6 +147,30 @@ class LoginContent extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
+    );
+  }
+
+  Widget _textNoCuenta() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 65,
+          height: 1,
+          color: Colors.white,
+          margin: EdgeInsets.only(right: 5),
+        ),
+        Text(
+          'No tienes cuenta?',
+          style: TextStyle(color: Colors.white, fontSize: 17),
+        ),
+        Container(
+          width: 65,
+          height: 1,
+          color: Colors.white,
+          margin: EdgeInsets.only(left: 5),
+        ),
+      ],
     );
   }
 }

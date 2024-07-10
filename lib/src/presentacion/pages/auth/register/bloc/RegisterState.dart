@@ -5,6 +5,7 @@ import 'package:proyecto_flutter/src/domain/utils/Resource.dart';
 import 'package:proyecto_flutter/src/presentacion/utils/BlocFormItem.dart';
 
 class RegisterState extends Equatable {
+  //variables q van a cambiar de estado
   final BlocFormItem name;
   final BlocFormItem lastname;
   final BlocFormItem email;

@@ -92,15 +92,21 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   //para resetear el formulario
-  Future<void> _onRegisterFormReset(
-      RegisterFormResert event, Emitter<RegisterState> emit) async {
+  Future<void> _onRegisterFormReset(RegisterFormResert event, Emitter<RegisterState> emit) async {
     state.formKey?.currentState?.reset();
   }
 
-  Future<void> _onRegisterFormOnClick(
-      RegisterFormOnClick event, Emitter<RegisterState> emit) async {
-    emit(state.copyWith(response: Loading(), formKey: formKey));
+  Future<void> _onRegisterFormOnClick(RegisterFormOnClick event, Emitter<RegisterState> emit) async {
+    emit(
+      state.copyWith(
+        response: Loading(), 
+        formKey: formKey
+      ));
     Resource response = await authUseCases.register.run(state.toUser());
-    emit(state.copyWith(response: response, formKey: formKey));
+    emit(
+      state.copyWith(
+        response: response,
+        formKey: formKey
+      ));
   }
 }

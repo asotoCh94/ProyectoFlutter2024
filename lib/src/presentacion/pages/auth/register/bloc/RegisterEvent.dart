@@ -5,7 +5,6 @@ abstract class RegisterEvent extends Equatable {
   const RegisterEvent();
 
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
@@ -30,7 +29,6 @@ class RegisterNameChanged extends RegisterEvent {
   const RegisterNameChanged({required this.name});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [name];
 }
 
@@ -39,7 +37,6 @@ class RegisterLastNameChanged extends RegisterEvent {
   const RegisterLastNameChanged({required this.lastname});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [lastname];
 }
 
@@ -48,7 +45,6 @@ class RegisterEmailChanged extends RegisterEvent {
   const RegisterEmailChanged({required this.email});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [email];
 }
 
@@ -57,7 +53,6 @@ class RegisterPhoneChanged extends RegisterEvent {
   const RegisterPhoneChanged({required this.phone});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [phone];
 }
 
@@ -66,7 +61,6 @@ class RegisterPasswordChanged extends RegisterEvent {
   const RegisterPasswordChanged({required this.password});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [password];
 }
 
@@ -75,7 +69,6 @@ class RegisterConfirmPasswordChanged extends RegisterEvent {
   const RegisterConfirmPasswordChanged({required this.confirmPassword});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [confirmPassword];
 }
 
